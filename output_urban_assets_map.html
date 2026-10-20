@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_353ee2b4e2e97f20b67c1c63dd4c0e93 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 30px; left: 30px; width: 330px; 
+                background-color: rgba(255, 255, 255, 0.95);
+                border: 2px solid #2563eb; z-index: 9999; 
+                font-family: Arial, sans-serif;
+                border-radius: 8px; padding: 12px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+        <h4 style="margin: 0 0 6px 0; color: #1e3a8a; font-size: 14px; font-weight: bold;">
+            Smart City Asset Management
+        </h4>
+        <p style="margin: 0 0 8px 0; font-size: 11px; color: #4b5563; line-height: 1.4;">
+            Analisis jangkauan layanan spasial (Buffer 500m) fasilitas publik Kota Bengkulu (WGS84 & UTM Zone 48S).
+        </p>
+        <div style="font-size: 11px; color: #374151;">
+            <b>Legenda Titik & Jangkauan:</b><br>
+            <span style="color: #2ca25f;">&#9632;</span> Fasilitas Publik &nbsp;|&nbsp;
+            <span style="color: #e34a33;">&#9632;</span> Kesehatan &nbsp;|&nbsp;
+            <span style="color: #3182bd;">&#9632;</span> Pendidikan
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_353ee2b4e2e97f20b67c1c63dd4c0e93" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_353ee2b4e2e97f20b67c1c63dd4c0e93 = L.map(
+                "map_353ee2b4e2e97f20b67c1c63dd4c0e93",
+                {
+                    center: [-3.8016, 102.27503333333334],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6024db3728847529d8757dbc71e87285 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6024db3728847529d8757dbc71e87285.addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var tile_layer_f38e7e6589ac6e84a65073c9499f1c08 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri World Imagery",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f38e7e6589ac6e84a65073c9499f1c08.addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var tile_layer_077d2e644c33b74b6817b958bf36c1c5 = L.tileLayer(
+                "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "OpenTopoMap",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_077d2e644c33b74b6817b958bf36c1c5.addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var feature_group_35d60dc1899722606fa7ac95e0c4cac3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+        function geo_json_0b5770b8efe21f797235db13aff4c413_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1c4e80", "dashArray": "3, 6", "fillColor": "#2ca25f", "fillOpacity": 0.25, "weight": 1.8};
+            }
+        }
+
+        function geo_json_0b5770b8efe21f797235db13aff4c413_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0b5770b8efe21f797235db13aff4c413 = L.geoJson(null, {
+                onEachFeature: geo_json_0b5770b8efe21f797235db13aff4c413_onEachFeature,
+            
+                style: geo_json_0b5770b8efe21f797235db13aff4c413_styler,
+            ...{
+}
+        });
+
+        function geo_json_0b5770b8efe21f797235db13aff4c413_add (data) {
+            geo_json_0b5770b8efe21f797235db13aff4c413
+                .addData(data);
+        }
+            geo_json_0b5770b8efe21f797235db13aff4c413_add({"features": [{"geometry": {"coordinates": [[[102.26529799973109, -3.792814288085025], [102.26527494744504, -3.793257087446034], [102.26520879866248, -3.793695484861138], [102.26510019038334, -3.7941252582681058], [102.26495016852935, -3.7945422686564036], [102.26476017787265, -3.7949424999303023], [102.26453204812252, -3.795322097588314], [102.2642679763046, -3.795677405846249], [102.26397050560178, -3.796005002846434], [102.26364250086101, -3.7963017336137317], [102.26328712100162, -3.796564740441205], [102.26290778859114, -3.7967914904122972], [102.26250815688155, -3.796979799795054], [102.26209207462374, -3.7971278550726817], [102.26166354899878, -3.7972342304086646], [102.26122670702352, -3.7972979013776067], [102.26078575580206, -3.797318254830025], [102.26034494200597, -3.7972950947958286], [102.25990851097394, -3.7972286443700067], [102.25948066582444, -3.7971195435620184], [102.25906552697549, -3.796968843130103], [102.25866709246147, -3.7967779944596103], [102.25828919942904, -3.796548835583246], [102.25793548718318, -3.796283573477499], [102.25760936213905, -3.7959847628064853], [102.25731396501753, -3.795655281317204], [102.25705214059987, -3.795298302123997], [102.25682641033298, -3.7949172631485615], [102.25663894804909, -3.7945158340102974], [102.25649155903339, -3.794097880685597], [102.25638566264112, -3.7936674282766303], [102.25632227863161, -3.793228622248035], [102.25630201735055, -3.792785688504924], [102.25632507385492, -3.792342892696465], [102.25639122603725, -3.7919044991371043], [102.25649983676699, -3.7914747297409037], [102.25664986002819, -3.791057723364259], [102.25683985099468, -3.7906574959487385], [102.25706797994522, -3.7902779018475545], [102.25733204988492, -3.789922596708208], [102.25762951770308, -3.789595002268528], [102.2579575186636, -3.789298273405251], [102.25831289399241, -3.7890352677521477], [102.25869222129612, -3.78880851818064], [102.25909184751895, -3.7886202084073295], [102.25950792412091, -3.7884721519640165], [102.25993644413826, -3.7883657747320147], [102.26037328076964, -3.7883021012095823], [102.26081422711636, -3.7882817446443333], [102.26125503669411, -3.788304901125979], [102.26169146432636, -3.7883713476960583], [102.26211930702527, -3.7884804444932807], [102.26253444446701, -3.788631140913541], [102.26293287867125, -3.7888219857256535], [102.26331077250326, -3.789051141045193], [102.26366448662736, -3.78931640003235], [102.26399061455614, -3.78961520814286], [102.2642860154579, -3.78994468772812], [102.26454784440614, -3.790301665746958], [102.26477357977981, -3.790682704322807], [102.26496104755043, -3.7910841338516255], [102.26510844222199, -3.7915020883420123], [102.26521434422187, -3.791932542646998], [102.26527773357525, -3.7923713512290833], [102.26529799973109, -3.792814288085025]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0b5770b8efe21f797235db13aff4c413.bindTooltip(
+                `<div>
+                     <b>Radius Layanan:</b> 500m<br><b>Aset:</b> Taman Kota Bengkulu<br><b>Kategori:</b> Fasilitas Publik<br><b>Luas Layanan:</b> ~78.41 Ha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            geo_json_0b5770b8efe21f797235db13aff4c413.addTo(feature_group_35d60dc1899722606fa7ac95e0c4cac3);
+        
+    
+        function geo_json_0993bfecad989f5991f49d7b75b9b988_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1c4e80", "dashArray": "3, 6", "fillColor": "#e34a33", "fillOpacity": 0.25, "weight": 1.8};
+            }
+        }
+
+        function geo_json_0993bfecad989f5991f49d7b75b9b988_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0993bfecad989f5991f49d7b75b9b988 = L.geoJson(null, {
+                onEachFeature: geo_json_0993bfecad989f5991f49d7b75b9b988_onEachFeature,
+            
+                style: geo_json_0993bfecad989f5991f49d7b75b9b988_styler,
+            ...{
+}
+        });
+
+        function geo_json_0993bfecad989f5991f49d7b75b9b988_add (data) {
+            geo_json_0993bfecad989f5991f49d7b75b9b988
+                .addData(data);
+        }
+            geo_json_0993bfecad989f5991f49d7b75b9b988_add({"features": [{"geometry": {"coordinates": [[[102.30259829697579, -3.823114205917677], [102.30257525123757, -3.8235570191328963], [102.30250910607987, -3.823995431061614], [102.30240049846697, -3.824425219502371], [102.30225047431345, -3.8248422453003053], [102.30206047841274, -3.825242492211617], [102.3018323405238, -3.8256221055844333], [102.3015682577498, -3.825977429483296], [102.3012707733784, -3.826305041899837], [102.30094275238748, -3.8266017877102536], [102.30058735385226, -3.826864809062404], [102.30020800051966, -3.8270915728994086], [102.29980834584286, -3.8272798953552374], [102.29939223879376, -3.8274279627865755], [102.29896368679218, -3.827534349239187], [102.29852681710919, -3.827598030179914], [102.29808583711602, -3.8276183923625418], [102.2976449937618, -3.8275952397322244], [102.29720853267054, -3.827528795312024], [102.29678065725082, -3.8274196990530154], [102.29636548821301, -3.8272690016691735], [102.29596702388304, -3.827078154516161], [102.29558910169554, -3.8268489956118574], [102.29523536123709, -3.826583731932949], [102.29490920919538, -3.8262849181587626], [102.29461378655195, -3.825955432066385], [102.2943519383344, -3.825598446814816], [102.29412618621937, -3.825217400384541], [102.29393870424981, -3.8248159624672944], [102.29379129790061, -3.8243979991246344], [102.29368538669398, -3.8239675355558833], [102.29362199053172, -3.8235287173338555], [102.29360171987625, -3.8230857704817924], [102.29362476987437, -3.8226429607757857], [102.29369091848065, -3.8222045526647466], [102.29379952859827, -3.821774768203425], [102.29394955421643, -3.821357746393756], [102.29413955048538, -3.82095750332627], [102.29436768763203, -3.820577893505126], [102.29463176858171, -3.8202225727292913], [102.29492925011691, -3.8198949628871195], [102.29525726736871, -3.8195982190034825], [102.29561266140558, -3.8193351988564754], [102.29599200965349, -3.8191084354566645], [102.29639165885465, -3.8189201126532817], [102.2968077602476, -3.818772044102995], [102.29723630662984, -3.8186656558030414], [102.2976731709463, -3.8186019723575715], [102.29811414603196, -3.8185816071090573], [102.29855498512626, -3.818604756230162], [102.29899144276897, -3.8186711968326836], [102.29941931568395, -3.818780289112257], [102.29983448325713, -3.8189309825078337], [102.30023294721886, -3.8191218258170214], [102.30061087014865, -3.819350981169652], [102.3009646124314, -3.8196162417255315], [102.30129076730934, -3.8199150529253485], [102.3015861936919, -3.8202445370909466], [102.30184804640778, -3.8206015211373727], [102.3020738036075, -3.8209825671304536], [102.3022612910527, -3.8213840053952564], [102.30240870305805, -3.821801969856864], [102.30251461988402, -3.822232435272957], [102.3025780214128, -3.8226712559997296], [102.30259829697579, -3.823114205917677]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0993bfecad989f5991f49d7b75b9b988.bindTooltip(
+                `<div>
+                     <b>Radius Layanan:</b> 500m<br><b>Aset:</b> RSUD M. Yunus<br><b>Kategori:</b> Kesehatan<br><b>Luas Layanan:</b> ~78.41 Ha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            geo_json_0993bfecad989f5991f49d7b75b9b988.addTo(feature_group_35d60dc1899722606fa7ac95e0c4cac3);
+        
+    
+        function geo_json_aa7b2499366a48eac116466c4011438b_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1c4e80", "dashArray": "3, 6", "fillColor": "#3182bd", "fillOpacity": 0.25, "weight": 1.8};
+            }
+        }
+
+        function geo_json_aa7b2499366a48eac116466c4011438b_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_aa7b2499366a48eac116466c4011438b = L.geoJson(null, {
+                onEachFeature: geo_json_aa7b2499366a48eac116466c4011438b_onEachFeature,
+            
+                style: geo_json_aa7b2499366a48eac116466c4011438b_styler,
+            ...{
+}
+        });
+
+        function geo_json_aa7b2499366a48eac116466c4011438b_add (data) {
+            geo_json_aa7b2499366a48eac116466c4011438b
+                .addData(data);
+        }
+            geo_json_aa7b2499366a48eac116466c4011438b_add({"features": [{"geometry": {"coordinates": [[[102.27069799996032, -3.7889142452752513], [102.2706749518559, -3.7893570468873268], [102.27060880721301, -3.7897954469440913], [102.27050020299178, -3.790225223357974], [102.27035018507489, -3.79064223708958], [102.27016019819649, -3.7910424720110747], [102.26993207202952, -3.7914220735859314], [102.269668003565, -3.791777385992311], [102.26937053595351, -3.792104987332645], [102.26904253401209, -3.7924017225900433], [102.26868715663304, -3.792664734014345], [102.26830782635984, -3.7928914886447314], [102.26790819642386, -3.7930798027043555], [102.26749211555871, -3.793227862631354], [102.26706359093198, -3.7933342425443772], [102.2666267495508, -3.793397917973883], [102.26618579851342, -3.793418275727349], [102.2657449844896, -3.793395119793173], [102.26530855282016, -3.79332867322676], [102.26488070662965, -3.7932195760002987], [102.26446556634615, -3.793068878837441], [102.2640671300178, -3.792878033091958], [102.26368923480882, -3.7926488767682973], [102.26333552004515, -3.7923836168182987], [102.26300939216634, -3.7920848078852503], [102.26271399192059, -3.7917553276993754], [102.26245216411938, -3.7913983493624404], [102.26222643024231, -3.7910173107878933], [102.26203896415649, -3.79061588159129], [102.26189157118384, -3.7901979277496176], [102.26178567071781, -3.789767474370077], [102.2617222825571, -3.7893286669267248], [102.26170201708742, -3.7888857313383797], [102.2617250694062, -3.7884429332720684], [102.26179121744634, -3.788004537064083], [102.26189982411718, -3.7875747646540887], [102.26204984344191, -3.7871577549276094], [102.26223983063225, -3.786757523858568], [102.2624679560033, -3.7863779258354446], [102.2627320225946, -3.7860226165435833], [102.26302948732761, -3.785695017760867], [102.26335748549583, -3.7853982844058947], [102.26371285835204, -3.7851352741557225], [102.26409218352647, -3.7849085199260446], [102.2644918079838, -3.784720205478309], [102.26490788320092, -3.784572144389295], [102.26533640222726, -3.7844657625850076], [102.26577323827095, -3.7844020846076702], [102.26621418443884, -3.784381723747715], [102.26665499424831, -3.7844048761361258], [102.2670914225205, -3.7844713188537606], [102.26751926626137, -3.7845804120763327], [102.26793440513705, -3.7847311052340635], [102.26833284115342, -3.7849219471270943], [102.26871073715834, -3.7851510998990223], [102.26906445379522, -3.7854163567345016], [102.26939058455255, -3.785715163109936], [102.26968598857147, -3.7860446413933806], [102.26994782089555, -3.7864016185561864], [102.27017355987135, -3.7867826567300256], [102.27036103143583, -3.78718408631474], [102.27050843005654, -3.7876020413184293], [102.27061433612293, -3.788032496589232], [102.27067772962116, -3.7884713065804174], [102.27069799996032, -3.7889142452752513]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_aa7b2499366a48eac116466c4011438b.bindTooltip(
+                `<div>
+                     <b>Radius Layanan:</b> 500m<br><b>Aset:</b> SMAN 1 Kota Bengkulu<br><b>Kategori:</b> Pendidikan<br><b>Luas Layanan:</b> ~78.41 Ha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            geo_json_aa7b2499366a48eac116466c4011438b.addTo(feature_group_35d60dc1899722606fa7ac95e0c4cac3);
+        
+    
+            feature_group_35d60dc1899722606fa7ac95e0c4cac3.addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var feature_group_e0b3b6e072c8dd75806dea0fc8147c29 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_70edc916a8f2807eb0c78fc2074fee09 = L.marker(
+                [-3.7928, 102.2608],
+                {
+}
+            ).addTo(feature_group_e0b3b6e072c8dd75806dea0fc8147c29);
+        
+    
+            var icon_dd49ad6a9a05116a9a4b2b1f0b9449eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6dcff851eddd82c22dac170a7736a94c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f7092a352ca0b594be5244366759986 = $(`<div id="html_6f7092a352ca0b594be5244366759986" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 8px 0; color: #1f2937; border-bottom: 2px solid #2ca25f; padding-bottom: 4px;">                 Taman Kota Bengkulu             </h4>             <table style="width: 100%; border-collapse: collapse;">                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">ID Aset:</td>                     <td style="padding: 2px 0; color: #111827;"><code>AST001</code></td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Kategori:</td>                     <td style="padding: 2px 0; color: #111827;">                         <span style="background-color: #2ca25f; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px;">                             Fasilitas Publik                         </span>                     </td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Koordinat:</td>                     <td style="padding: 2px 0; color: #111827;">-3.7928, 102.2608</td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Buffer Layanan:</td>                     <td style="padding: 2px 0; color: #059669;">500 meter</td>                 </tr>             </table>             <div style="margin-top: 8px; font-size: 10px; color: #9ca3af; text-align: right;">                 Smart City Asset Management             </div>         </div>         </div>`)[0];
+                popup_6dcff851eddd82c22dac170a7736a94c.setContent(html_6f7092a352ca0b594be5244366759986);
+            
+        
+
+        marker_70edc916a8f2807eb0c78fc2074fee09.bindPopup(popup_6dcff851eddd82c22dac170a7736a94c)
+        ;
+
+        
+    
+    
+            marker_70edc916a8f2807eb0c78fc2074fee09.bindTooltip(
+                `<div>
+                     Taman Kota Bengkulu (Fasilitas Publik)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_70edc916a8f2807eb0c78fc2074fee09.setIcon(icon_dd49ad6a9a05116a9a4b2b1f0b9449eb);
+            
+    
+            var marker_01b46afdce378dd3f966641c8e26d9f5 = L.marker(
+                [-3.8231, 102.2981],
+                {
+}
+            ).addTo(feature_group_e0b3b6e072c8dd75806dea0fc8147c29);
+        
+    
+            var icon_0e688721e7bb4bb8ee5ba392dc12fe0c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "plus",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59cff5b2413849c171c7d605ddf764fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b81bfd15e30ff9e2cadaf5bae596dd15 = $(`<div id="html_b81bfd15e30ff9e2cadaf5bae596dd15" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 8px 0; color: #1f2937; border-bottom: 2px solid #e34a33; padding-bottom: 4px;">                 RSUD M. Yunus             </h4>             <table style="width: 100%; border-collapse: collapse;">                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">ID Aset:</td>                     <td style="padding: 2px 0; color: #111827;"><code>AST002</code></td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Kategori:</td>                     <td style="padding: 2px 0; color: #111827;">                         <span style="background-color: #e34a33; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px;">                             Kesehatan                         </span>                     </td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Koordinat:</td>                     <td style="padding: 2px 0; color: #111827;">-3.8231, 102.2981</td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Buffer Layanan:</td>                     <td style="padding: 2px 0; color: #059669;">500 meter</td>                 </tr>             </table>             <div style="margin-top: 8px; font-size: 10px; color: #9ca3af; text-align: right;">                 Smart City Asset Management             </div>         </div>         </div>`)[0];
+                popup_59cff5b2413849c171c7d605ddf764fc.setContent(html_b81bfd15e30ff9e2cadaf5bae596dd15);
+            
+        
+
+        marker_01b46afdce378dd3f966641c8e26d9f5.bindPopup(popup_59cff5b2413849c171c7d605ddf764fc)
+        ;
+
+        
+    
+    
+            marker_01b46afdce378dd3f966641c8e26d9f5.bindTooltip(
+                `<div>
+                     RSUD M. Yunus (Kesehatan)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_01b46afdce378dd3f966641c8e26d9f5.setIcon(icon_0e688721e7bb4bb8ee5ba392dc12fe0c);
+            
+    
+            var marker_69a52d926fb9c011bf6c5c9d981282e5 = L.marker(
+                [-3.7889, 102.2662],
+                {
+}
+            ).addTo(feature_group_e0b3b6e072c8dd75806dea0fc8147c29);
+        
+    
+            var icon_b328948de12d7023d88f7c51a17f7098 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "book",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d82b479aaa7e93206c34ea29cdb1ea63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95ba532f6a438515c1006b7c5b512cb9 = $(`<div id="html_95ba532f6a438515c1006b7c5b512cb9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 8px 0; color: #1f2937; border-bottom: 2px solid #3182bd; padding-bottom: 4px;">                 SMAN 1 Kota Bengkulu             </h4>             <table style="width: 100%; border-collapse: collapse;">                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">ID Aset:</td>                     <td style="padding: 2px 0; color: #111827;"><code>AST003</code></td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Kategori:</td>                     <td style="padding: 2px 0; color: #111827;">                         <span style="background-color: #3182bd; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px;">                             Pendidikan                         </span>                     </td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Koordinat:</td>                     <td style="padding: 2px 0; color: #111827;">-3.7889, 102.2662</td>                 </tr>                 <tr>                     <td style="font-weight: bold; padding: 2px 0; color: #4b5563;">Buffer Layanan:</td>                     <td style="padding: 2px 0; color: #059669;">500 meter</td>                 </tr>             </table>             <div style="margin-top: 8px; font-size: 10px; color: #9ca3af; text-align: right;">                 Smart City Asset Management             </div>         </div>         </div>`)[0];
+                popup_d82b479aaa7e93206c34ea29cdb1ea63.setContent(html_95ba532f6a438515c1006b7c5b512cb9);
+            
+        
+
+        marker_69a52d926fb9c011bf6c5c9d981282e5.bindPopup(popup_d82b479aaa7e93206c34ea29cdb1ea63)
+        ;
+
+        
+    
+    
+            marker_69a52d926fb9c011bf6c5c9d981282e5.bindTooltip(
+                `<div>
+                     SMAN 1 Kota Bengkulu (Pendidikan)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_69a52d926fb9c011bf6c5c9d981282e5.setIcon(icon_b328948de12d7023d88f7c51a17f7098);
+            
+    
+            feature_group_e0b3b6e072c8dd75806dea0fc8147c29.addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var tile_layer_6a69944112e3cb7fe9c6a608d4b0fb86 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_235395f21474102bab22a03e5aa770ff = new L.Control.MiniMap(
+                tile_layer_6a69944112e3cb7fe9c6a608d4b0fb86,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_353ee2b4e2e97f20b67c1c63dd4c0e93.addControl(mini_map_235395f21474102bab22a03e5aa770ff);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+        
+    
+            var measure_control_cf48c9da7d273a6a610b5a81ce347623 = new L.Control.Measure(
+                {
+  "position": "topleft",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "kilometers",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_353ee2b4e2e97f20b67c1c63dd4c0e93.addControl(measure_control_cf48c9da7d273a6a610b5a81ce347623);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var layer_control_661b766ba752c9d646b82d08ac845840_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_6024db3728847529d8757dbc71e87285,
+                    "Satelit (Esri World Imagery)" : tile_layer_f38e7e6589ac6e84a65073c9499f1c08,
+                    "Topografi (OpenTopoMap)" : tile_layer_077d2e644c33b74b6817b958bf36c1c5,
+                },
+                overlays :  {
+                    "Area Jangkauan Layanan (Buffer 500m)" : feature_group_35d60dc1899722606fa7ac95e0c4cac3,
+                    "Titik Fasilitas Publik (Public Assets)" : feature_group_e0b3b6e072c8dd75806dea0fc8147c29,
+                },
+            };
+            let layer_control_661b766ba752c9d646b82d08ac845840 = L.control.layers(
+                layer_control_661b766ba752c9d646b82d08ac845840_layers.base_layers,
+                layer_control_661b766ba752c9d646b82d08ac845840_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_353ee2b4e2e97f20b67c1c63dd4c0e93);
+
+        
+</script>
+</html>

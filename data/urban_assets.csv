@@ -1,0 +1,11 @@
+asset_id,asset_name,category,latitude,longitude,address,condition,last_inspection
+AST001,Taman Kota Bengkulu,Fasilitas Publik,-3.7928,102.2608,Jl. Veteran No. 1 Bengkulu,Baik,2026-09-15
+AST002,RSUD M. Yunus,Kesehatan,-3.8231,102.2981,Jl. Bhayangkara Sidomulyo Bengkulu,Sangat Baik,2026-10-01
+AST003,SMAN 1 Kota Bengkulu,Pendidikan,-3.7889,102.2662,Jl. Ahmad Yani No. 1 Bengkulu,Baik,2026-08-20
+AST004,Kantor Walikota Bengkulu,Pemerintahan,-3.7954,102.2655,Jl. Basuki Rahmat No. 1 Bengkulu,Baik,2026-09-10
+AST005,Masjid Raya Baitul Izzah,Fasilitas Ibadah,-3.8185,102.2902,Jl. Asahan No. 1 Padang Harapan,Sangat Baik,2026-10-05
+AST006,Benteng Marlborough Heritage,Ruang Publik & Wisata,-3.7876,102.2504,Jl. Benteng Kebun Keling Bengkulu,Baik,2026-07-12
+AST007,Universitas Bengkulu (UNIB),Pendidikan,-3.7583,102.2748,Jl. WR. Supratman Kandang Limun,Sangat Baik,2026-09-28
+AST008,Puskesmas Sukamerindu,Kesehatan,-3.7942,102.2778,Jl. Sukamerindu Bengkulu,Perlu Perawatan,2026-10-12
+AST009,Stadion Semarak Bengkulu,Olahraga & Publik,-3.8153,102.2856,Sawah Lebar Bengkulu,Cukup,2026-08-14
+AST010,Pemadam Kebakaran Kota Bengkulu,Layanan Darurat,-3.8052,102.2715,Jl. P. Natadirja Bengkulu,Sangat Baik,2026-10-15
